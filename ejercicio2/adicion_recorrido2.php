@@ -1,19 +1,24 @@
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee los valores enviados por POST desde el formulario de recorrido
 $idchofer = $_POST['idchofer'];
 $idvehiculo = $_POST['idvehiculo'];
 $idparada = $_POST['idparada'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
 
+// Inserta el recorrido en la tabla correspondiente
 $sql = "INSERT INTO recorrido (idchofer, idvehiculo, fecha, hora, idparada)
 VALUES ('$idchofer', '$idvehiculo', '$fecha', '$hora', '$idparada')";
 
 if(mysqli_query($conexion, $sql)){
-    echo "Recorrido agregado correctamente";
+    $mensaje = "Recorrido agregado correctamente";
+    $error = false;
 } else {
-    echo "Error: " . mysqli_error($conexion);
+    $mensaje = "Error: " . mysqli_error($conexion);
+    $error = true;
 }
 ?>
 
@@ -23,12 +28,12 @@ if(mysqli_query($conexion, $sql)){
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> <!-- Codificación -->
     <title>Resultado Adición</title>
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para el mensaje de resultado */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -52,7 +57,7 @@ if(mysqli_query($conexion, $sql)){
         color: white;
     }
 
-    /* Botón bonito para volver */
+    /* Botón para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;
@@ -76,6 +81,7 @@ if(mysqli_query($conexion, $sql)){
 
 <body>
 
+    <!-- Muestra el resultado de la operación: mensaje y estado (éxito/error) -->
     <div class="mensaje <?php echo $error ? 'error' : 'exito'; ?>">
         <?php echo $mensaje; ?>
     </div>

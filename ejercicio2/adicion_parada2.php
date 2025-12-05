@@ -1,13 +1,17 @@
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee los valores enviados por POST desde el formulario de adición de parada
 $punto = $_POST['punto'];
 $desc = $_POST['descripcion'];
 
+// Validación simple en el servidor: verifica que no estén vacíos
 if (empty($punto) || empty($desc)) {
     $mensaje = "Todos los campos son obligatorios";
     $error = true;
 } else {
+    // Construye y ejecuta la consulta para insertar la nueva parada
     $sql = "INSERT INTO parada (puntoparada, descripcion) VALUES ('$punto', '$desc')";
     if (mysqli_query($conexion, $sql)) {
         $mensaje = "Parada agregada correctamente";
@@ -23,12 +27,12 @@ if (empty($punto) || empty($desc)) {
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Resultado Adición</title>
+    <meta charset="utf-8"> <!-- Codificación -->
+    <title>Resultado Adición</title> <!-- Título de la página de resultado -->
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para mensajes de éxito o error */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -52,7 +56,7 @@ if (empty($punto) || empty($desc)) {
         color: white;
     }
 
-    /* Botón bonito para volver */
+    /* Botón para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;
@@ -76,10 +80,12 @@ if (empty($punto) || empty($desc)) {
 
 <body>
 
+    <!-- Muestra el mensaje de resultado; la clase depende de la variable $error -->
     <div class="mensaje <?php echo $error ? 'error' : 'exito'; ?>">
         <?php echo $mensaje; ?>
     </div>
 
+    <!-- Botón para volver al índice principal -->
     <div class="boton-volver">
         <button onclick="window.location.href='index.php'">Volver al Inicio</button>
     </div>

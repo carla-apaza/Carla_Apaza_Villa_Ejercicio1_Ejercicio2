@@ -1,12 +1,15 @@
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee el id del recorrido enviado por POST
 $id = $_POST['idrecorrido'];
 
+// Ejecuta la eliminación del recorrido seleccionado
 $sql = "DELETE FROM recorrido WHERE idrecorrido='$id'";
 
 if(mysqli_query($conexion, $sql)){
-    echo "";
+    echo ""; // Sin salida en caso de éxito
 } else {
     echo "Error: " . mysqli_error($conexion);
 }
@@ -18,12 +21,12 @@ if(mysqli_query($conexion, $sql)){
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> <!-- Codificación -->
     <title>Resultado Adición</title>
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para el mensaje de resultado */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -47,7 +50,6 @@ if(mysqli_query($conexion, $sql)){
         color: white;
     }
 
-    /* Botón bonito para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;

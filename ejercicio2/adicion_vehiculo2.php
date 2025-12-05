@@ -1,18 +1,22 @@
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee los valores enviados por POST para crear el registro del vehículo
 $placa = $_POST['placa'];
 $color = $_POST['color'];
 $modelo = $_POST['modelo'];
 $tipo = $_POST['tipo'];
 
+// Construye la consulta INSERT
 $sql = "INSERT INTO vehiculo (placa, color, modelo, tipo)
 VALUES ('$placa', '$color', '$modelo', '$tipo')";
 
+// Ejecuta la inserción y mantiene el comportamiento original
 if(mysqli_query($conexion, $sql)){
-    echo "";
+    echo ""; // Sin salida en caso de éxito
 } else {
-    echo "Error: " . mysqli_error($conexion);
+    echo "Error: " . mysqli_error($conexion); // Muestra error en caso contrario
 }
 ?>
 
@@ -22,12 +26,12 @@ if(mysqli_query($conexion, $sql)){
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> <!-- Codificación -->
     <title>Resultado Adición</title>
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para el mensaje de resultado */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -51,7 +55,6 @@ if(mysqli_query($conexion, $sql)){
         color: white;
     }
 
-    /* Botón bonito para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;

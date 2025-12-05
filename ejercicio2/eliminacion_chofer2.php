@@ -1,28 +1,32 @@
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee el ID del chofer enviado por POST
 $id = $_POST['idchofer'];
 
+// Construye la consulta DELETE y la ejecuta
 $sql = "DELETE FROM chofer WHERE idchofer='$id'";
 
 if(mysqli_query($conexion, $sql)){
-    echo "";
+    echo ""; // Sin salida en caso de éxito (mantener comportamiento original)
 } else {
     echo "Error: " . mysqli_error($conexion);
 }
 ?>
 
 
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Resultado Adición</title>
+    <meta charset="utf-8"> <!-- Codificación -->
+    <title>Resultado Adición</title> <!-- Título -->
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para mensaje de resultado */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -46,7 +50,6 @@ if(mysqli_query($conexion, $sql)){
         color: white;
     }
 
-    /* Botón bonito para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;

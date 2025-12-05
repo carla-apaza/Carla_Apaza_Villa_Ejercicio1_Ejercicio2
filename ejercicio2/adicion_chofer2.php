@@ -1,13 +1,20 @@
+
 <?php
+// Incluye la conexión a la base de datos
 include("conectar.php");
 
+// Lee el nombre completo enviado por POST
 $nombre = $_POST['nombrecompleto'];
 
+// Inserta el nuevo chofer en la tabla 'chofer'
 $sql = "INSERT INTO chofer (nombrecompleto) VALUES ('$nombre')";
 
+// Ejecuta la consulta; mantiene la lógica original (no se altera el flujo)
 if(mysqli_query($conexion, $sql)){
+    // No se imprime nada en caso de éxito (el HTML abajo mostrará un mensaje estático)
     echo "";
 } else {
+    // En caso de error muestra el mensaje de MySQL
     echo "Error: " . mysqli_error($conexion);
 }
 ?>
@@ -17,12 +24,12 @@ if(mysqli_query($conexion, $sql)){
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Resultado Adición</title>
+    <meta charset="utf-8"> <!-- Codificación -->
+    <title>Resultado Adición</title> <!-- Título de la página de resultado -->
 </head>
 
 <style>
-    /* Mensajes de éxito o error */
+    /* Estilos para los mensajes */
     body {
         background: linear-gradient(135deg, #ec2bec, #0b00a1);
     }
@@ -46,7 +53,7 @@ if(mysqli_query($conexion, $sql)){
         color: white;
     }
 
-    /* Botón bonito para volver */
+    /* Botón para volver */
     .boton-volver {
         text-align: center;
         margin-top: 20px;
@@ -70,10 +77,12 @@ if(mysqli_query($conexion, $sql)){
 
 <body>
 
+    <!-- Mensaje de confirmación estático: no se calcula $error en este archivo, se mantiene diseño original -->
     <div class="mensaje <?php echo $error ? 'error' : 'exito'; ?>">
         <?php echo "Chofer agregado correctamente"; ?>
     </div>
 
+    <!-- Botón para volver al índice -->
     <div class="boton-volver">
         <button onclick="window.location.href='index.php'">Volver al Inicio</button>
     </div>
