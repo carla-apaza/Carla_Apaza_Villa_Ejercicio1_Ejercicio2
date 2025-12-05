@@ -1,0 +1,104 @@
+body {
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+
+h2 {
+    text-align: center;
+    background: #0088ff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    width: 50%;
+    margin: auto;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #999;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+input[type="submit"] {
+    background: #0088ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #005fcc;
+}
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ff5bb5;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ec2bec, #0b00a1);
+
+}
+
+h1 {
+    text-align: center;
+    background: #7940ff;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+.menu {
+    width: 60%;
+    margin: 40px auto;
+    background: linear-gradient(135deg,#0b00a1 , #ec2bec);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu h2 {
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #f09a1b;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: #00bfff;
+    color: rgb(5, 5, 5);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background: #500091;
+    color: #ffffff;
+}
